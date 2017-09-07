@@ -17,11 +17,26 @@ app4.directive("runoobDirective",function(){
 	};
 });
 
+var app5 = angular.module("app5",[]);
+app5.controller("ctr5",function($scope){
+	$scope.myEmail = "m18825070504";
+});
+
+var app6 = angular.module("app6",[]);
+app6.controller("ctr6-1",function($scope,$rootScope){
+	$scope.num = 111;
+	$rootScope.rootNum = 1234;
+});
+app6.controller("ctr6-2",function($scope){
+	$scope.num = 222;
+});
 
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
 		angular.bootstrap(document.getElementById("app3"),["app3"]);
 		angular.bootstrap(document.getElementById("app4"),["app4"]);
+		angular.bootstrap(document.getElementById("app5"),["app5"]);
+		angular.bootstrap(document.getElementById("app6"),["app6"]);
 	}
 );

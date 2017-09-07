@@ -37,8 +37,37 @@
 	<br/><hr/><br/>
     
     <div id="app4" data-ng-app="app4">
+    	<h3>AppDemo4</h3>
+        <p>自定义指令</p>
     	<runoob-directive></runoob-directive>
         <div runoob-directive></div>
+    </div>
+
+	<br/><hr/><br/>
+    
+    <form id="app5" name="myForm" data-ng-app="app5" data-ng-controller="ctr5">
+    	<h3>AppDemo5</h3>
+        <p>数据验证</p>
+        <p>Email:</p>
+        <input type="email" name="myAddress" ng-model="myEmail"/>
+        <p>您的邮箱是:{{ myForm.myAddress.$viewValue }}</p>
+        <p ng-show="myForm.myAddress.$error.email">这不是一个合法邮箱</p>
+        <p>{{myForm.myAddress}}</p>
+    </form>
+    
+    <br/><hr/><br/>
+    
+    <div id="app6" data-ng-app="app6">
+    	<h3>AppDemo6</h3>
+        <p>作用域</p>
+    	<div data-ng-controller="ctr6-1">
+        	<p>控制器1中的num:{{num}}</p>
+            <p>公共变量rootNum:{{rootNum}}</p>
+        </div>
+        <div data-ng-controller="ctr6-2">
+        	<p>控制器2中的num:{{num}}</p>
+            <p>公共变量rootNum:{{rootNum}}</p>
+        </div>
     </div>
 </body>
 </html>
