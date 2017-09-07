@@ -1,0 +1,52 @@
+ng-app 指令定义一个 AngularJS 应用程序。
+ng-model 指令把元素值（比如输入域的值）绑定到应用程序。
+ng-bind 指令把应用程序数据绑定到 HTML 视图。
+ng-init 指令初始化 AngularJS 应用程序变量。
+ng-app指令定义了应用, ng-controller 定义了控制器。
+ng-repeat 指令会重复一个 HTML 元素
+
+AngularJS 表达式写在双大括号内：{{ expression }}。
+AngularJS 表达式 很像 JavaScript 表达式：它们可以包含文字、运算符和变量。
+实例 {{ 5 + 5 }} 或 {{ firstName + " " + lastName }}
+与ng-bind类似
+
+可以使用 .directive 函数来添加自定义的指令。
+要调用自定义指令，HTML 元素上需要添加自定义指令名。
+使用驼峰法来命名一个指令， runoobDirective, 但在使用它时需要以 - 分割, runoob-directive:
+例：
+<runoob-directive></runoob-directive>
+<div runoob-directive></div>
+<div class="runoob-directive"></div>
+<!-- directive: runoob-directive -->
+<script>
+var app = angular.module("myApp", []);
+app.directive("runoobDirective", function() {
+    return {
+		restrict : "A",
+        template : "<h1>自定义指令!</h1>"
+    };
+});
+</script>
+restrict 值可以是以下几种:
+	E 作为元素名使用
+	A 作为属性使用
+	C 作为类名使用
+	M 作为注释使用
+	restrict 默认值为 EA, 即可以通过元素名和属性名来调用指令。
+作为注释使用时必须设置replace 属性为true， 否则评论是不可见的。
+
+--------------------------------------------------------------
+注：
+
+HTML5 允许扩展的（自制的）属性，以 data- 开头。
+AngularJS 属性以 ng- 开头，但是您可以使用 data-ng- 来让网页对 HTML5 有效。
+
+AngularJS默认在一个html界面中只启动一个ng-app 模块，
+而且是界面中第一次出现的那个使用 ng-app 声明的模块
+其他的ng-app 模块需要用 angular.bootstrap 手动加载
+例:
+angular.element(document).ready(
+	function(){
+		angular.bootstrap(document.getElementById("appDemo2"),["appDemo2"]);
+	}
+);
