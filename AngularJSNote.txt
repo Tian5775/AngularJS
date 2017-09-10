@@ -44,7 +44,18 @@ ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error)
 当在控制器中添加 $scope 对象时，视图 (HTML) 可以获取了这些属性,只作用于当前控制器。
 $rootScope 可作用于整个应用中。是各个 controller 中 scope 的桥梁。用 rootscope 定义的值，可以在各个 controller 中使用。
 
+在大型的应用程序中，通常是把控制器存储在外部js文件中。
 
+AngularJS过滤器可用于转换数据：
+	currency	格式化数字为货币格式。
+	filter		从数组项中选择一个子集。
+	lowercase	格式化字符串为小写。
+	orderBy		根据某个表达式排列数组。
+	uppercase	格式化字符串为大写。
+过滤器可以通过一个管道字符（|）和一个过滤器添加到表达式中。
+例:{{ lastName | uppercase }}
+orderBy如果只按大小排序可以使用orderBy:sortSimpleType
+app.filter可以自定义过滤器
 
 --------------------------------------------------------------
 注：

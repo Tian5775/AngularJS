@@ -31,6 +31,24 @@ app6.controller("ctr6-2",function($scope){
 	$scope.num = 222;
 });
 
+var app7 = angular.module("app7",[]);
+app7.controller("ctr7",function($scope){
+	$scope.firstName = "JACK";
+	$scope.lastName = "tom";
+	$scope.money = 250;
+	$scope.myArray1 = [5,3,6,1,8];
+	$scope.myArray2 = [
+		{name:"Tom",city:"Beijing"},
+		{name:"Jack",city:"Chaozhou"},
+		{name:"Rose",city:"HongKong"}
+	];
+});
+app7.filter("reverse",function(){
+	return function(text){
+		return text.split("").reverse().join("");	
+	}
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -38,5 +56,6 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app4"),["app4"]);
 		angular.bootstrap(document.getElementById("app5"),["app5"]);
 		angular.bootstrap(document.getElementById("app6"),["app6"]);
+		angular.bootstrap(document.getElementById("app7"),["app7"]);
 	}
 );

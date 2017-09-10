@@ -69,5 +69,37 @@
             <p>公共变量rootNum:{{rootNum}}</p>
         </div>
     </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app7" data-ng-app="app7">
+        <h3>AppDemo7</h3>
+        <p>过滤器</p>
+        <div data-ng-controller="ctr7">
+        	<p>{{firstName}}格式化为小写:{{firstName | lowercase}}</p>
+            <p>{{lastName}}格式化为大写:{{lastName | uppercase}}</p>
+            <p>{{money}}格式化为货币格式{{money | currency}}</p>
+            <ul data-ng-repeat="x in myArray1 | orderBy">
+            	<li>{{x}}</li>
+            </ul>
+            <p>倒序</p>
+            <ul data-ng-repeat="x in myArray1 | orderBy:sortSimpleType:true">
+            	<li>{{x}}</li>
+            </ul>
+            <br />
+			<ul data-ng-repeat="x in myArray2 | orderBy:'city'">
+            	<li>{{x.name + " " + x.city}}</li>
+            </ul>
+            <br />
+            <p>根据输入条件过滤</p>
+            <input type="text" data-ng-model="filterText"/>
+            <ul data-ng-repeat="x in myArray2 | filter:filterText | orderBy:'name'">
+            	<li>{{x.name + " " + x.city}}</li>
+            </ul>
+            <br />
+            <p>自定义过滤器</p>
+            <p>{{lastName}} 倒序: {{lastName | reverse}}</p>
+          </div>
+    </div>
 </body>
 </html>
