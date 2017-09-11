@@ -36,6 +36,8 @@ app7.controller("ctr7",function($scope){
 	$scope.firstName = "JACK";
 	$scope.lastName = "tom";
 	$scope.money = 250;
+	$scope.num = 1112.3456;
+	$scope.date = 1490161945000;
 	$scope.myArray1 = [5,3,6,1,8];
 	$scope.myArray2 = [
 		{name:"Tom",city:"Beijing"},
@@ -49,6 +51,21 @@ app7.filter("reverse",function(){
 	}
 });
 
+var app8 = angular.module("app8",[]);
+app8.controller("ctr8",function($scope,$location,$timeout,$interval){
+	$scope.myUrl = $location.absUrl();
+	$scope.timeoutNum = "hi";
+	$timeout(function(){
+		$scope.timeoutNum = "hello";	
+	},2000);
+	$scope.intervalNum = 0;
+	$interval(function(){
+		if($scope.intervalNum < 10){
+			$scope.intervalNum ++ ;			
+		}
+	},1000);
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -57,5 +74,6 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app5"),["app5"]);
 		angular.bootstrap(document.getElementById("app6"),["app6"]);
 		angular.bootstrap(document.getElementById("app7"),["app7"]);
+		angular.bootstrap(document.getElementById("app8"),["app8"]);
 	}
 );

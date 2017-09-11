@@ -78,7 +78,10 @@
         <div data-ng-controller="ctr7">
         	<p>{{firstName}}格式化为小写:{{firstName | lowercase}}</p>
             <p>{{lastName}}格式化为大写:{{lastName | uppercase}}</p>
-            <p>{{money}}格式化为货币格式{{money | currency}}</p>
+            <p>{{money}}格式化为货币格式:{{money | currency}}</p>
+            <p>{{money}} 格式化为"RNB ￥": {{money | currency:"RNB ￥ "}}</p>
+            <p>{{num}}格式化保留两位小数:{{num | number:"2"}}</p>
+            <p>{{date}}格式化为时间格式:{{date | date:"yyyy-MM-dd HH:mm:ss"}}</p>
             <ul data-ng-repeat="x in myArray1 | orderBy">
             	<li>{{x}}</li>
             </ul>
@@ -99,7 +102,17 @@
             <br />
             <p>自定义过滤器</p>
             <p>{{lastName}} 倒序: {{lastName | reverse}}</p>
-          </div>
+		</div>
+    </div>
+    
+    <div id="app8" data-ng-app="app8">
+    	<h3>AppDemo8</h3>
+        <p>AngularJS服务</p>
+        <div data-ng-controller="ctr8">
+        	<p>当前网址{{myUrl}}</p>
+            <p>AngularJS-timeout : {{timeoutNum}}</p>
+            <p>AngularJS-interval : {{intervalNum}}</p>
+        </div>
     </div>
 </body>
 </html>
