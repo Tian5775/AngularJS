@@ -52,18 +52,49 @@ app7.filter("reverse",function(){
 });
 
 var app8 = angular.module("app8",[]);
-app8.controller("ctr8",function($scope,$location,$timeout,$interval){
+app8.controller("ctr8",function($scope,$location,$timeout,$interval,hexafy){
 	$scope.myUrl = $location.absUrl();
 	$scope.timeoutNum = "hi";
 	$timeout(function(){
 		$scope.timeoutNum = "hello";	
 	},2000);
 	$scope.intervalNum = 0;
-	$interval(function(){
+	var thisInterval = $interval(function(){
 		if($scope.intervalNum < 10){
 			$scope.intervalNum ++ ;			
+		}else{
+			$interval.cancel(thisInterval);//清除定时器
 		}
 	},1000);
+	$scope.hex = hexafy.myFunc(255);
+	$scope.formatNum = 20;
+});
+app8.service('hexafy',function(){
+	this.myFunc = function(x){
+		return x.toString(16);
+	}
+});
+//在过滤器中使用自定义服务
+app8.filter('myFormat',['hexafy',function(hexafy){
+	return function(x){
+		return hexafy.myFunc(x);
+	}
+}]);
+
+var app9 = angular.module("app9",[]);
+app9.controller("ctr9",function($scope,$http){
+	//需要在服务器中调试
+	$http({
+		method:"get",
+		url:"../json/sites.json"	
+	}).then(function successCallback(response){
+		$scope.myArray = response.data.sites;
+	},function errorCallback(response){
+		console.log(response);
+	});
+	/*$http.get("../json/sites.json").then(function(response){
+		$scope.myArray = response.data.sites;
+	});*/
 });
 
 angular.element(document).ready(
@@ -75,5 +106,6 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app6"),["app6"]);
 		angular.bootstrap(document.getElementById("app7"),["app7"]);
 		angular.bootstrap(document.getElementById("app8"),["app8"]);
+		angular.bootstrap(document.getElementById("app9"),["app9"]);
 	}
 );

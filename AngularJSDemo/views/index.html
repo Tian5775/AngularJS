@@ -19,6 +19,7 @@
 	<div id="app2" data-ng-app="app2" data-ng-controller="ctr2">
     	<h3>AppDemo2</h3>
         <p>初始化参数</p>
+        <br />
     	<p>姓:<input type="text" data-ng-model="firstName"/></p>
         <p>名:<input type="text" data-ng-model="lastName"/></p>
         <p>您的姓名是:{{firstName + " " + lastName}}</p>   
@@ -29,6 +30,7 @@
     <div id="app3" data-ng-app="app3" data-ng-controller="ctr3">
     	<h3>AppDemo3</h3>
         <p>使用ng-repeat 来循环数组</p>
+        <br />
         <ul data-ng-repeat="i in nameArray">
         	<li>{{ i }}</li>
         </ul>
@@ -39,6 +41,7 @@
     <div id="app4" data-ng-app="app4">
     	<h3>AppDemo4</h3>
         <p>自定义指令</p>
+        <br />
     	<runoob-directive></runoob-directive>
         <div runoob-directive></div>
     </div>
@@ -48,6 +51,7 @@
     <form id="app5" name="myForm" data-ng-app="app5" data-ng-controller="ctr5">
     	<h3>AppDemo5</h3>
         <p>数据验证</p>
+        <br />
         <p>Email:</p>
         <input type="email" name="myAddress" ng-model="myEmail"/>
         <p>您的邮箱是:{{ myForm.myAddress.$viewValue }}</p>
@@ -60,6 +64,7 @@
     <div id="app6" data-ng-app="app6">
     	<h3>AppDemo6</h3>
         <p>作用域</p>
+        <br />
     	<div data-ng-controller="ctr6-1">
         	<p>控制器1中的num:{{num}}</p>
             <p>公共变量rootNum:{{rootNum}}</p>
@@ -75,6 +80,7 @@
     <div id="app7" data-ng-app="app7">
         <h3>AppDemo7</h3>
         <p>过滤器</p>
+        <br />
         <div data-ng-controller="ctr7">
         	<p>{{firstName}}格式化为小写:{{firstName | lowercase}}</p>
             <p>{{lastName}}格式化为大写:{{lastName | uppercase}}</p>
@@ -105,14 +111,39 @@
 		</div>
     </div>
     
+    <br/><hr/><br/>
+    
     <div id="app8" data-ng-app="app8">
     	<h3>AppDemo8</h3>
         <p>AngularJS服务</p>
+        <br />
         <div data-ng-controller="ctr8">
         	<p>当前网址{{myUrl}}</p>
             <p>AngularJS-timeout : {{timeoutNum}}</p>
             <p>AngularJS-interval : {{intervalNum}}</p>
+            <br />
+            <p>自定义服务</p>
+            <p>255转为16进制为{{hex}}</p>
+            <br />
+            <p>在过滤器中使用自定义服务</p>
+            <input type="number" data-ng-model="formatNum"/>
+            <p>{{formatNum | myFormat}}</p>
         </div>
     </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app9" data-ng-app="app9">
+    	<h3>AppDemo9</h3>
+        <p>$http读取远程服务器的数据</p>
+        <br />
+        <div data-ng-controller="ctr9">
+        	<ul data-ng-repeat="x in myArray | orderBy:'Url':true">
+            	<li> {{x.Name + " " + x.Url + " " + x.Country}}</li>
+            </ul>
+        </div>
+    </div>
+    
+    <br/><hr/><br/>
 </body>
 </html>
