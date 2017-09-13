@@ -129,6 +129,14 @@ app12.controller("ctr12",function($scope){
 	}
 });
 
+var app13 = angular.module("app13",[]);
+app13.controller("ctr13",function($scope){
+	$scope.myRadio = "2";
+	$scope.myCheckbox = true;
+	$scope.mySelect = ["dog","cat","panda"];
+	$scope.selectValue = "panda";
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -142,5 +150,6 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app10"),["app10"]);
 		angular.bootstrap(document.getElementById("app11"),["app11"]);
 		angular.bootstrap(document.getElementById("app12"),["app12"]);
+		angular.bootstrap(document.getElementById("app13"),["app13"]);
 	}
 );

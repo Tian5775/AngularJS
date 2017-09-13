@@ -207,5 +207,25 @@
             <span>{{myText}}</span>
         </div>
     </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app13" data-ng-app="app13">
+    	<h3>AppDemo13</h3>
+        <p>表单</p>
+        <br />
+        <div data-ng-controller="ctr13">
+        	<p><input type="radio" data-ng-model="myRadio" value="1"/>1</p>
+            <p><input type="radio" data-ng-model="myRadio" value="2"/>2</p>
+            <p><input type="radio" data-ng-model="myRadio" value="3"/>3</p>
+            <p>你选择的是:{{myRadio}}</p>
+            <br />
+            <p>是否显示"Hello World!"<input type="checkbox" data-ng-model="myCheckbox"/></p>
+            <p data-ng-show="myCheckbox">Hello World!</p>
+            <br />
+            <select data-ng-options="x for x in mySelect" data-ng-model="selectValue"></select>
+            <p>你选择的是:{{selectValue}}</p>
+        </div>
+    </div>
 </body>
 </html>
