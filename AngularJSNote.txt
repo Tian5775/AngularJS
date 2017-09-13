@@ -5,7 +5,11 @@ ng-init 指令初始化 AngularJS 应用程序变量。
 ng-app指令定义了应用, ng-controller 定义了控制器。
 ng-repeat 指令会重复一个 HTML 元素
 ng-show 属性返回 true 的情况下显示
-
+ng-option 指令来创建一个下拉列表，列表项通过对象和数组循环输出
+ng-disabled 指令直接绑定应用程序数据到 HTML 的 disabled 属性。
+ng-show 指令隐藏或显示一个 HTML 元素。
+ng-hide 指令用于隐藏或显示 HTML 元素。
+ng-click 指令定义了 AngularJS 点击事件。
 
 AngularJS 表达式写在双大括号内：{{ expression }}。
 AngularJS 表达式 很像 JavaScript 表达式：它们可以包含文字、运算符和变量。
@@ -98,6 +102,12 @@ $http.delete
 $http.jsonp
 $http.patch
 
+ng-repeat 指令是通过数组来循环 HTML 代码来创建下拉列表，但 ng-options 指令更适合创建下拉列表，它有以下优势：
+使用 ng-options 的选项的一个对象， ng-repeat 是一个字符串。
+
+ng-repeat 指令可以完美的显示表格。
+$index 显示序号
+使用 $even 和 $odd 行数为奇数或偶数
 
 --------------------------------------------------------------
 

@@ -5,6 +5,15 @@
     <title>AngularJSDemo</title>
     <script type="text/javascript" src="../plugin/angular.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <style type="text/css">
+		#app11 table, th , td  {
+			border: 1px solid grey;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+		
+		
+	</style>
 </head>
 <body>
 	<div data-ng-app="">
@@ -31,8 +40,8 @@
     	<h3>AppDemo3</h3>
         <p>使用ng-repeat 来循环数组</p>
         <br />
-        <ul data-ng-repeat="i in nameArray">
-        	<li>{{ i }}</li>
+        <ul>
+        	<li data-ng-repeat="i in nameArray">{{ i }}</li>
         </ul>
     </div>
 
@@ -88,22 +97,22 @@
             <p>{{money}} 格式化为"RNB ￥": {{money | currency:"RNB ￥ "}}</p>
             <p>{{num}}格式化保留两位小数:{{num | number:"2"}}</p>
             <p>{{date}}格式化为时间格式:{{date | date:"yyyy-MM-dd HH:mm:ss"}}</p>
-            <ul data-ng-repeat="x in myArray1 | orderBy">
-            	<li>{{x}}</li>
+            <ul>
+            	<li data-ng-repeat="x in myArray1 | orderBy">{{x}}</li>
             </ul>
             <p>倒序</p>
-            <ul data-ng-repeat="x in myArray1 | orderBy:sortSimpleType:true">
-            	<li>{{x}}</li>
+            <ul>
+            	<li data-ng-repeat="x in myArray1 | orderBy:sortSimpleType:true">{{x}}</li>
             </ul>
             <br />
-			<ul data-ng-repeat="x in myArray2 | orderBy:'city'">
-            	<li>{{x.name + " " + x.city}}</li>
+			<ul>
+            	<li data-ng-repeat="x in myArray2 | orderBy:'city'">{{x.name + " " + x.city}}</li>
             </ul>
             <br />
             <p>根据输入条件过滤</p>
             <input type="text" data-ng-model="filterText"/>
-            <ul data-ng-repeat="x in myArray2 | filter:filterText | orderBy:'name'">
-            	<li>{{x.name + " " + x.city}}</li>
+            <ul>
+            	<li data-ng-repeat="x in myArray2 | filter:filterText | orderBy:'name'">{{x.name + " " + x.city}}</li>
             </ul>
             <br />
             <p>自定义过滤器</p>
@@ -138,12 +147,65 @@
         <p>$http读取远程服务器的数据</p>
         <br />
         <div data-ng-controller="ctr9">
-        	<ul data-ng-repeat="x in myArray | orderBy:'Url':true">
-            	<li> {{x.Name + " " + x.Url + " " + x.Country}}</li>
+        	<ul>
+            	<li data-ng-repeat="x in myArray | orderBy:'Url':true"> {{x.Name + " " + x.Url + " " + x.Country}}</li>
             </ul>
         </div>
     </div>
     
     <br/><hr/><br/>
+    
+    <div id="app10" data-ng-app="app10">
+    	<h3>AppDemo10</h3>
+        <p>Select(选择框)</p>
+        <br />
+        <div data-ng-controller="ctr10">
+        	<!--使用ng-options创建下拉列表-->
+            <select data-ng-model="selectedName1" data-ng-options="x.name for x in selectArray" value="s"></select>
+            <br />
+            <br />
+            <!--使用ng-repeat创建下拉列表-->
+            <select data-ng-model="selectedName2">
+                <option data-ng-repeat="x in selectArray">{{x.name + " " + x.city}}</option>
+            </select>
+            <br />
+            <br />
+            <select data-ng-model="selectedName3" data-ng-options="y.name for (x,y) in selectObject"></select>
+            <p>你选择的是:</p>
+            <p>姓名:{{selectedName3.name}}</p>
+            <p>城市:{{selectedName3.city}}</p>
+        </div>
+    </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app11" data-ng-app="app11">
+    	<h3>AppDemo11</h3>
+        <p>表格</p>
+        <br />
+        <div data-ng-controller="ctr11">
+        	<table>
+            	<tr data-ng-repeat="x in tableData | orderBy:'Name'" style="{{$odd?'background-color:#CCC':''}}">
+                	<td>{{$index + 1}}</td>
+                	<td>{{x.Name}}</td>
+                	<td>{{x.City}}</td>
+                	<td>{{x.Country}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app12" data-ng-app="app12">
+    	<h3>AppDemo12</h3>
+        <p>HTML DOM和事件</p>
+        <br />
+        <div data-ng-controller="ctr12">
+        	<button data-ng-click="myClick()">编辑</button>
+            <input data-ng-disabled="myBool" />
+            <span>{{myText}}</span>
+        </div>
+    </div>
 </body>
 </html>

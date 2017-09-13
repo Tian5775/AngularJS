@@ -97,6 +97,38 @@ app9.controller("ctr9",function($scope,$http){
 	});*/
 });
 
+var app10 = angular.module("app10",[]);
+app10.controller("ctr10",function($scope){
+	$scope.selectArray = [{name:"Tom",city:"Beijing"},{name:"Mike",city:"Chaozhou"},{name:"John",city:"Shenzhen"}];
+	$scope.selectObject = {
+		value1:{name:"Tom",city:"Beijing"},
+		value2:{name:"Mike",city:"Chaozhou"},
+		value3:{name:"John",city:"Shenzhen"}
+	};
+	$scope.selectedName1 = $scope.selectArray[0];
+	$scope.selectedName2 = $scope.selectArray[0];
+	$scope.selectedName3 = $scope.selectObject.value1;
+});
+
+var app11 = angular.module("app11",[]);
+app11.controller("ctr11",function($scope,$http){
+	$http.get("../json/tableJson.json").then(function successsCallback(response){
+		$scope.tableData = response.data.data;
+	},function errorCallback(response){
+		console.log("error");	
+	});
+});
+
+var app12 = angular.module("app12",[]);
+app12.controller("ctr12",function($scope){
+	$scope.myBool = true;
+	$scope.myText = "不允许编辑";
+	$scope.myClick=function(){
+		$scope.myBool = !$scope.myBool;
+		$scope.myText = $scope.myBool?'不允许编辑':'允许编辑';	
+	}
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -107,5 +139,8 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app7"),["app7"]);
 		angular.bootstrap(document.getElementById("app8"),["app8"]);
 		angular.bootstrap(document.getElementById("app9"),["app9"]);
+		angular.bootstrap(document.getElementById("app10"),["app10"]);
+		angular.bootstrap(document.getElementById("app11"),["app11"]);
+		angular.bootstrap(document.getElementById("app12"),["app12"]);
 	}
 );
