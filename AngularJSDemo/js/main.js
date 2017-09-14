@@ -137,6 +137,15 @@ app13.controller("ctr13",function($scope){
 	$scope.selectValue = "panda";
 });
 
+var app14 = angular.module("app14",[]);
+app14.controller("ctr14",function($scope){
+	$scope.myName = "Tian";
+	$scope.nameLower = angular.lowercase($scope.myName);
+	$scope.nameUpper = angular.uppercase($scope.myName);
+	$scope.nameIsString = angular.isString($scope.myName);
+	$scope.nameIsNum = angular.isNumber($scope.myName);
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -151,5 +160,6 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app11"),["app11"]);
 		angular.bootstrap(document.getElementById("app12"),["app12"]);
 		angular.bootstrap(document.getElementById("app13"),["app13"]);
+		angular.bootstrap(document.getElementById("app14"),["app14"]);
 	}
 );
