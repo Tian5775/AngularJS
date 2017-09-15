@@ -146,6 +146,12 @@ app14.controller("ctr14",function($scope){
 	$scope.nameIsNum = angular.isNumber($scope.myName);
 });
 
+var app15 = angular.module("app15",[]);
+app15.controller("ctr15",function($scope){
+	$scope.num = 111;
+	$scope.myArray = ["dog","cat","panda"];
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -161,5 +167,6 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app12"),["app12"]);
 		angular.bootstrap(document.getElementById("app13"),["app13"]);
 		angular.bootstrap(document.getElementById("app14"),["app14"]);
+		angular.bootstrap(document.getElementById("app15"),["app15"]);
 	}
 );

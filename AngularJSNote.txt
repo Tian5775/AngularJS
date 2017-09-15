@@ -132,6 +132,9 @@ ng-include 指令除了可以包含 HTML 文件外，还可以包含 AngularJS 代码。
 如果你需要包含其他域名的文件，你需要设置域名访问白名单：
 详情:http://www.runoob.com/angularjs/angularjs-include.html
 
+AngularJS 提供了动画效果，可以配合 CSS 使用。
+AngularJS 使用动画需要引入 angular-animate.min.js 库。
+
 --------------------------------------------------------------
 
 注：
