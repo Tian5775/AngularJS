@@ -1,0 +1,19 @@
+/*AppDemo11*/
+#app11 table, th , td  {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+/*AppDemo16*/
+.App16-hideDiv{
+	width:200px;
+	height:100px;
+	background:lightpink;
+	transition:all linear 0.5s;
+}
+
+.ng-hide{
+	height:0;
+	background:transparent;
+}

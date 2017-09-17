@@ -4,16 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>AngularJSDemo</title>
     <script type="text/javascript" src="../plugin/angular.min.js"></script>
+    <script type="text/javascript" src="../plugin/angular-animate.min.js"></script>
+    <script type="text/javascript" src="../plugin/angular-route.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
-    <style type="text/css">
-		#app11 table, th , td  {
-			border: 1px solid grey;
-			border-collapse: collapse;
-			padding: 5px;
-		}
-		
-		
-	</style>
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
 </head>
 <body>
 	<div data-ng-app="">
@@ -249,6 +243,57 @@
         <p>包含ng-include</p>
         <br />
     	<div data-ng-controller="ctr15" data-ng-include="'views/AppDemo15.html'"></div>
+    </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app16" data-ng-app="app16">
+    	<h3>AppDemo16</h3>
+        <p>AngularJs动画</p>
+        <br />
+		<div data-ng-controller="ctr16">
+        	<button data-ng-model="hideDiv" data-ng-click="showOrHide()">{{buttonText}}</button>
+            <div class="App16-hideDiv" data-ng-hide="hideDiv">
+            	
+            </div>
+        </div>
+    </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app17" data-ng-app="app17">
+    	<h3>AppDemo17>
+        <p>依赖注入</p>
+        <br />
+        <p>factory</p>
+		<div data-ng-controller="ctr17-1">
+        	<input type="number" data-ng-model="myNum" />
+            <button data-ng-click="squareFunc()">X<sup>2</sup></button>
+            <p>结果:{{square}}</p>
+        </div>
+        <br />
+        <p>provider</p>
+        <div data-ng-controller="ctr17-2">
+        	<input type="number" data-ng-model="myNum" />
+            <button data-ng-click="squareFunc()">X<sup>2</sup></button>
+            <p>结果:{{square}}</p>
+        </div>
+        </div>
+    </div>
+    
+    <br/><hr/><br/>
+    
+    <div id="app18" data-ng-app="app18">
+    	<h3>AppDemo18</h3>
+        <p>* AngularJS 路由</p>
+        <br />
+		<div id="hrefDiv">
+        	<a href="#/home">Home</a>
+            <a href="#/about">About</a>
+        </div>
+        <div ng-view="">
+        
+        </div>
     </div>
 </body>
 </html>

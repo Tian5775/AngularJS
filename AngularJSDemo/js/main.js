@@ -152,6 +152,90 @@ app15.controller("ctr15",function($scope){
 	$scope.myArray = ["dog","cat","panda"];
 });
 
+var app16 = angular.module("app16",["ngAnimate"]);
+app16.controller("ctr16",function($scope){
+	$scope.hideDiv = false;
+	$scope.buttonText = "隐藏";
+	$scope.showOrHide = function(){
+		$scope.hideDiv = !$scope.hideDiv;
+		if($scope.hideDiv)
+			$scope.buttonText = "显示";
+		else
+			$scope.buttonText = "隐藏";
+	}
+});
+
+var app17 = angular.module("app17",[]);
+app17.controller("ctr17-1",function($scope,myMath,defaultValue){
+	$scope.myNum = defaultValue;
+	$scope.square = myMath.multiply($scope.myNum);
+	$scope.squareFunc = function(){
+		$scope.square = myMath.multiply($scope.myNum);
+	}
+});
+app17.value("defaultValue",5);
+app17.factory("MathService",function(){
+	var factory = {};
+	
+	factory.multiply = function(a,b){
+		return a * b;	
+	}
+	
+	return factory;
+});
+app17.service('myMath',function(MathService){
+	this.multiply = function(a){
+		return 	MathService.multiply(a,a);
+	}
+});
+app17.controller("ctr17-2",function($scope,defaultConstant,myMath2){
+	$scope.myNum = defaultConstant;
+	$scope.square = myMath2.multiply($scope.myNum);
+	$scope.squareFunc = function(){
+		$scope.square = myMath2.multiply($scope.myNum);
+	}
+});
+app17.constant("defaultConstant",6);
+app17.config(function($provide){
+	$provide.provider("MathProvide",function(){
+		this.$get = function(){
+			var provide = {};
+			
+			provide.multiply = function(a,b){
+				return a * b;	
+			}
+			
+			return provide;
+		};		
+	});
+});
+app17.service("myMath2",function(MathProvide){
+	this.multiply = function(a){
+		return MathProvide.multiply(a,a);
+	};
+});
+
+var app18 = angular.module("app18",["ngRoute"]);
+app18.config(function($routeProvider){
+	$routeProvider.
+	when('/home',{
+		templateUrl:'views/AppDemo18-home.html',
+		controller:'ctr1'
+	}).
+	when('/about',{
+		templateUrl:'views/AppDemo18-about.html',
+		controller:'ctr2'
+	}).
+	otherwise({
+		redirectTo:'/home'
+	});
+});
+app18.controller("ctr1",function($scope,$route){
+	$scope.$route = $route;
+}).controller("ctr2",function($scope,$route){
+	$scope.$route = $route;
+});
+
 angular.element(document).ready(
 	function(){
 		angular.bootstrap(document.getElementById("app2"),["app2"]);
@@ -168,5 +252,8 @@ angular.element(document).ready(
 		angular.bootstrap(document.getElementById("app13"),["app13"]);
 		angular.bootstrap(document.getElementById("app14"),["app14"]);
 		angular.bootstrap(document.getElementById("app15"),["app15"]);
+		angular.bootstrap(document.getElementById("app16"),["app16"]);
+		angular.bootstrap(document.getElementById("app17"),["app17"]);
+		angular.bootstrap(document.getElementById("app18"),["app18"]);
 	}
 );
